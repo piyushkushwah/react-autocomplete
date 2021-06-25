@@ -1,0 +1,28 @@
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;  
+}
+
+.App-show-value{
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid gray;
+  margin: 5px 5px;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.App-autocomplete{
+  width: 40%;
+}
+
+@media only screen and (max-width: 600px){
+  .App-autocomplete{
+      width: 90%;
+  }
+}
