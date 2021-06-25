@@ -12,7 +12,7 @@ export const DataList = React.forwardRef((props,ref) => {
             {
                 props.suggestions && props.suggestions.length !== 0 ?
                 props.suggestions.map((data,index)=> {
-                if(!handleError(data,'name')) return;
+                if(!handleError(data,'name')) return null;
                 return(
                     <DataListItem ref={dataListItemRef}
                         key={index+data.name} 

@@ -30,7 +30,7 @@ export default function Autocomplete({suggestions,getVlaueFromAutocomplete}) {
           setActiveSuggestion(0);
         }
        getVlaueFromAutocomplete(userInput);
-    }, [userInput])
+    }, [getVlaueFromAutocomplete, userInput])
 
     const handleFilterSuggestions = (event) => {
 
@@ -39,7 +39,7 @@ export default function Autocomplete({suggestions,getVlaueFromAutocomplete}) {
         setShowList(true);
 
         const filteredSuggestionData = value.length !== 0 ? suggestions.filter(data=> {
-            if(!handleError(data,'name')) return;
+            if(!handleError(data,'name')) return [];
             return data.name.toLowerCase().startsWith(value.toLowerCase())
         }) : suggestions;
         
@@ -76,6 +76,8 @@ export default function Autocomplete({suggestions,getVlaueFromAutocomplete}) {
                 if(activeSuggestion !== filteredSuggestion.length - 1) setActiveSuggestion(activeSuggestion+1);
                 if(dataListRef && activeSuggestion !== 0) dataListRef.current.scrollTop += 50 ;
             break;
+            default:
+                return 0;
        }
     }
 
